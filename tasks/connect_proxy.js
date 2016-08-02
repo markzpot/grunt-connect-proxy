@@ -30,13 +30,13 @@ module.exports = function(grunt) {
     utils.reset();
     utils.log = grunt.log;
     if (config) {
-        var connectOptions = grunt.config('connect.'+config) || [];
+        var connectOptions = grunt.config('php.dev.'+config) || [];
         if (typeof connectOptions.appendProxies === 'undefined' || connectOptions.appendProxies) {
-            proxyOptions = proxyOptions.concat(grunt.config('connect.proxies') || []);
+            proxyOptions = proxyOptions.concat(grunt.config('php.dev.proxies') || []);
         }
         proxyOptions = proxyOptions.concat(connectOptions.proxies || []);
     } else {
-        proxyOptions = proxyOptions.concat(grunt.config('connect.proxies') || []);
+        proxyOptions = proxyOptions.concat(grunt.config('php.dev.proxies') || []);
     }
     proxyOptions.forEach(function(proxy) {
         proxyOption = _.defaults(proxy,  {
